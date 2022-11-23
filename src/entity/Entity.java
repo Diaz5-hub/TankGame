@@ -32,7 +32,7 @@ public class Entity {
     public boolean attacking = false;   //PRESS ENTER TO ATTACK
     public boolean alive = true;
     public boolean dying = false;
-    public boolean hpBarOn = false;
+    public boolean hpBarOn = true;
 
 
     //CHARACTER ATTRIBUTES
@@ -62,7 +62,7 @@ public class Entity {
         gp.cChecker.checkEntity(this,gp.opponent);  //CHECK COLLISION BETWEEN ENTITIES(OPPONENT AND BAT)
         boolean contactPlayer = gp.cChecker.checkPlayer(this);
 
-        if(this.type == 2 && contactPlayer == true){
+        if(this.type == 2 && contactPlayer == true){    //if contacted player from opponent, damage is resulted
             if(gp.player.invincible == false) {
                 gp.playSE(5);
                 gp.player.life -= 1;
@@ -76,6 +76,13 @@ public class Entity {
                 case "down":worldY += speed;break;
                 case "left": worldX -= speed;break;
                 case "right":worldX += speed;break;
+            }
+        }
+        if(invincible == true){
+            invincibleCounter++;
+            if(invincibleCounter > 40){
+                invincible = false;
+                invincibleCounter = 0;
             }
         }
     }
@@ -124,11 +131,11 @@ public class Entity {
                 }
             }
             //add when adding invincible, need to change in order for hpbar to show at all times for opponent, right now only showing when hit
-//            if(invincible == true){
-//                hpBarOn = true;
-//                hpBarCounter = 0;
-//                changeAlpha(g2,0.4f);
-//            }
+            if(invincible == true){
+                hpBarOn = true;
+                hpBarCounter = 0;
+                changeAlpha(g2,0.4f);
+            }
 
 
             if(dying == true){
@@ -136,6 +143,7 @@ public class Entity {
                 dyingAnimation(g2);
             }
             g2.drawImage(image,screenX,screenY,gp.tileSize,gp.tileSize,null);
+            changeAlpha(g2,1F);
         }
     }
     public void dyingAnimation(Graphics2D g2){

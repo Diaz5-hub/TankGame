@@ -101,13 +101,22 @@ public class Player extends Entity{
 
 
             // IF COLLISION IS FALSE, PLAYER CAN MOVE
-            if(collisionOn == false){
+            if(collisionOn == false && keyH.enterPressed == false){
                 switch (direction){
                     case "up": worldY -= speed; break;
                     case "down":worldY += speed;break;
                     case "left": worldX -= speed;break;
                     case "right":worldX += speed;break;
                 }
+            }
+            //gp.keyH.enterPressed = false;
+        }
+        //NEEDS TO BE OUTSIDE KEY IF STATEMENT
+        if(invincible == true){
+            invincibleCounter++;
+            if(invincibleCounter > 60){
+                invincible = false;
+                invincibleCounter = 0;
             }
         }
     }
@@ -143,8 +152,11 @@ public class Player extends Entity{
         if( i != 999){
             System.out.println("you are hitting an npc!");
         }
+            //WILL MAKE THE TANK NOT MOVE BECAUSE GP.KEYH.ENTERPRESSED DOES NOT WORK
 //        else{
+//               if(gp.keyH.enterPressed == true){
 //            attacking = true;
+//               }
 //        }
         //need to check again
     }
@@ -152,16 +164,23 @@ public class Player extends Entity{
         if(i != 999){
             //means player touched a monster
             //CAN TAKE OUT IF STATEMENT IF NOT WANT INVINCIBLE ATTRIBUTE BUT KEEP LIFE DAMAGE
-            gp.playSE(5);
-            life-=1;
+            if(invincible == false) {
+                gp.playSE(5);
+                life -= 1;
+                invincible = true;
+            }
         }
     }
     public void damageOpponent(int i ){
         if( i!= 999) {
-            gp.opponent[i].life -=1;
-            gp.opponent[i].damageReaction();
-            if(gp.opponent[i].life <= 0){
-                gp.opponent[i].dying = true;
+            if(gp.opponent[i].invincible == false) {
+                gp.playSE(4);
+                gp.opponent[i].life -= 1;
+                gp.opponent[i].invincible = true;
+                gp.opponent[i].damageReaction();
+                if (gp.opponent[i].life <= 0) {
+                    gp.opponent[i].dying = true;
+                }
             }
         }
     }
@@ -190,7 +209,21 @@ public class Player extends Entity{
                 image = right1;
                 break;
         }
+
+        if(invincible == true){
+            //make character half transparent when invincible
+            g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,0.3f));
+        }
+
         g2.drawImage(image,screenX,screenY,null);   // x and y do not change throughout the game.
 
+        //RESET ALPHA TO MAKE SURE NEXT UI TEXT IS NOT HALF TRANSPARENT
+        g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,1f));
+
+
+        //DEBUG
+//        g2.setFont(new Font("Arial",Font.PLAIN,26));
+//        g2.setColor(Color.white);
+//        g2.drawString("invincible"+invincibleCounter,10,400);
     }
 }

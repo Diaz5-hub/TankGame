@@ -55,7 +55,7 @@ public class OPP_Tank extends Entity {
         }
     }
     public void damageReaction(){
-        actionLockCounter = 0;
+        actionLockCounter = 0;  //when recieve damage, face the players direction, if player facing right, opponent faces right
         direction = gp.player.direction;
     }
 }
