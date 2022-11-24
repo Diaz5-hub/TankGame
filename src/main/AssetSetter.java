@@ -21,8 +21,8 @@ public class AssetSetter {
 //        gp.obj[0].worldY = gp.tileSize*22;
 //
 //        gp.obj[1] = new OBJ_Boots(gp);
-//        gp.obj[1].worldX = gp.tileSize*21;
-//        gp.obj[1].worldY = gp.tileSize*22;
+//        gp.obj[1].worldX = gp.tileSize*23;
+//        gp.obj[1].worldY = gp.tileSize*24;
 
     }
     public void setNPC(){

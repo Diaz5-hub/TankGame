@@ -26,12 +26,13 @@ public class GamePanel extends JPanel implements Runnable{
     public final int maxWorldCol = 50;
     public final int maxWorldRow = 50;
 
+
     //FPS
     int FPS = 60;
 
     TileManager tileM = new TileManager(this);
 
-    KeyHandler keyH = new KeyHandler(this);
+    public KeyHandler keyH = new KeyHandler(this);
 
     //SOUND
     Sound music = new Sound();
@@ -49,6 +50,7 @@ public class GamePanel extends JPanel implements Runnable{
     public Entity npc[] = new Entity[10];
     public Entity opponent[] = new Entity[20];
     ArrayList<Entity> entityList = new ArrayList<>();   //place all npc and objects into this list, one big entity list
+    public ArrayList<Entity> projectileList = new ArrayList<>();
 
     //GAME STATE
     public int gameState;
@@ -131,6 +133,17 @@ public class GamePanel extends JPanel implements Runnable{
                 }
             }
         }
+
+        for (int i =0;i<projectileList.size();i++){
+            if(projectileList.get(i) != null){
+                if(projectileList.get(i).alive == true ){
+                    projectileList.get(i).update();
+                }
+                if(projectileList.get(i).alive == false){
+                    projectileList.remove(i);
+                }
+            }
+        }
     }
     public void paintComponent(Graphics g){
 
@@ -166,6 +179,11 @@ public class GamePanel extends JPanel implements Runnable{
             for(int i =0;i< opponent.length;i++){
                 if(opponent[i] != null){
                     entityList.add(opponent[i]);
+                }
+            }
+            for(int i =0;i< projectileList.size();i++){
+                if(projectileList.get(i) != null){
+                    entityList.add(projectileList.get(i));
                 }
             }
 

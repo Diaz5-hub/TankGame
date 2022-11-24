@@ -2,6 +2,8 @@ package entity;
 
 import main.GamePanel;
 import main.KeyHandler;
+import object.OBJ_FireBall;
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
@@ -47,6 +49,7 @@ public class Player extends Entity{
         //PLAYER STATUS
         maxLife = 6;        //1 life means half heart so 6 lives is 3 hearts
         life = maxLife;
+        projectile = new OBJ_FireBall(gp);
     }
     public void getPlayerImage(){
 
@@ -111,6 +114,13 @@ public class Player extends Entity{
             }
             //gp.keyH.enterPressed = false;
         }
+        if(gp.keyH.shotKeyPressed == true && projectile.alive == false && shotAvailableCounter == 30){
+            projectile.set(worldX,worldY,direction,true,this);
+            //ADD IT TO THE LIST
+            gp.projectileList.add(projectile);
+            shotAvailableCounter = 0;
+            gp.playSE(6);
+        }
         //NEEDS TO BE OUTSIDE KEY IF STATEMENT
         if(invincible == true){
             invincibleCounter++;
@@ -118,6 +128,10 @@ public class Player extends Entity{
                 invincible = false;
                 invincibleCounter = 0;
             }
+        }
+        //cannot shot another fireball for the next 30 frames, so half a second
+        if(shotAvailableCounter < 30){
+            shotAvailableCounter++;
         }
     }
     public void attacking(){
@@ -137,7 +151,7 @@ public class Player extends Entity{
         solidArea.height = attackArea.height;
         //CHECK OPPONENT COLLISION WITH THE UPDATE WORLX WORLDY AND SOLID AREA
         int opponentIndex = gp.cChecker.checkEntity(this,gp.opponent);
-        damageOpponent(opponentIndex);
+        damageOpponent(opponentIndex,4);    //can replace with attack if declared variable
         worldX = currentWorldX;
         worldY = currentWorldY;
         solidArea.width = solidAreaWidth;
@@ -171,9 +185,9 @@ public class Player extends Entity{
             }
         }
     }
-    public void damageOpponent(int i ){
+    public void damageOpponent(int i,int attack){
         if( i!= 999) {
-            if(gp.opponent[i].invincible == false) {
+            if(gp.opponent[i].invincible == false){
                 gp.playSE(4);
                 gp.opponent[i].life -= 1;
                 gp.opponent[i].invincible = true;

@@ -42,6 +42,12 @@ public class Entity {
     public String name;
     int dyingCounter =0;
     int hpBarCounter = 0;
+    public int maxMana;
+    public int mana;
+    public Projectile projectile;
+    public int useCost;
+    public int shotAvailableCounter = 0;
+
 
 
     public Entity(GamePanel gp){
@@ -177,7 +183,6 @@ public class Entity {
             changeAlpha(g2,1f);
         }
         if(dyingCounter > i*8){
-            dying = false;
             alive = false;
         }
     }
