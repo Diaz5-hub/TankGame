@@ -69,12 +69,7 @@ public class Entity {
         boolean contactPlayer = gp.cChecker.checkPlayer(this);
 
         if(this.type == 2 && contactPlayer == true){    //if contacted player from opponent, damage is resulted
-            if(gp.player.invincible == false) {
-                gp.playSE(5);
-                gp.player.life -= 1;
-                gp.player.invincible = true;
-            }
-
+            damagePlayer(4);    //get 4 damage
         }
         if(collisionOn == false){
             switch (direction){
@@ -90,6 +85,16 @@ public class Entity {
                 invincible = false;
                 invincibleCounter = 0;
             }
+        }
+        if(shotAvailableCounter < 30){
+            shotAvailableCounter++;
+        }
+    }
+    public void damagePlayer(int attack){
+        if(gp.player.invincible == false) {
+            gp.playSE(5);
+            gp.player.life -= 1;
+            gp.player.invincible = true;
         }
     }
     public void draw(Graphics2D g2){

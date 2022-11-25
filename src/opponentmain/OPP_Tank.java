@@ -2,6 +2,7 @@ package opponentmain;
 
 import entity.Entity;
 import main.GamePanel;
+import object.OBJ_FireBall;
 
 import java.util.Random;
 
@@ -22,6 +23,7 @@ public class OPP_Tank extends Entity {
         solidArea.height = 32;  //cut down so there is space to hit the block. Easier for player to move in between blocks. allows for more space to move
 
         getImage();
+        projectile = new OBJ_FireBall(gp);  //setting the opponent with a fireball to shoot
 
     }
     public void getImage(){
@@ -52,6 +54,13 @@ public class OPP_Tank extends Entity {
                 direction = "right";
             }
             actionLockCounter = 0;
+        }
+        //AI FOR OPPONENT TO SHOT
+        int i = new Random().nextInt(100)+1;
+        if(i > 99 && projectile.alive == false && shotAvailableCounter == 30){
+            projectile.set(worldX,worldY,direction,true,this);
+            gp.projectileList.add(projectile);
+            shotAvailableCounter = 0;
         }
     }
     public void damageReaction(){

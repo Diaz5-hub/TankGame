@@ -20,12 +20,17 @@ public class Projectile extends Entity{
         if(user == gp.player){
             int opponentIndex = gp.cChecker.checkEntity(this,gp.opponent);
             if(opponentIndex != 999){
-                gp.player.damageOpponent(opponentIndex,6);
+                gp.player.damageOpponent(opponentIndex,22);
                 alive = false;  //if projectile hits the opponent, it dies(disappears)
             }
         }
         if(user != gp.player){
-
+            //if the user is the opponent
+            boolean contactPlayer = gp.cChecker.checkPlayer(this);
+            if(gp.player.invincible == false && contactPlayer == true){
+                damagePlayer(16);   //get 16 damage to player
+                alive = false;
+            }
         }
         switch (direction){
             case "up": worldY -= speed;break;
