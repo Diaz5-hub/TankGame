@@ -3,9 +3,9 @@ package object;
 import entity.Projectile;
 import main.GamePanel;
 
-public class OBJ_FireBall extends Projectile {
+public class FireBall extends Projectile {
     GamePanel gp;
-    public OBJ_FireBall(GamePanel gp) {
+    public FireBall(GamePanel gp) {
         //structure entity->projectile->fireball. to be able to get from projectile and entity
         super(gp);
         this.gp = gp;

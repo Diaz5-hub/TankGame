@@ -2,7 +2,7 @@ package entity;
 
 import main.GamePanel;
 import main.KeyHandler;
-import object.OBJ_FireBall;
+import object.FireBall;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -49,7 +49,7 @@ public class Player extends Entity{
         //PLAYER STATUS
         maxLife = 6;        //1 life means half heart so 6 lives is 3 hearts
         life = maxLife;
-        projectile = new OBJ_FireBall(gp);
+        projectile = new FireBall(gp);
     }
     public void getPlayerImage(){
 
@@ -119,7 +119,7 @@ public class Player extends Entity{
             //ADD IT TO THE LIST
             gp.projectileList.add(projectile);
             shotAvailableCounter = 0;
-            gp.playSE(6);
+            gp.playSE(5);
         }
         //NEEDS TO BE OUTSIDE KEY IF STATEMENT
         if(invincible == true){
@@ -204,6 +204,18 @@ public class Player extends Entity{
     public void pickUpObject(int i) {
         if (i != 999) {
             //use this for powerups and sound effects when picking them up. look at screenshot in phone
+            String objectName = gp.obj[i].name;
+            switch (objectName){
+                case "Boots":
+                    speed+=2;
+                    gp.playSE(1);
+                    gp.obj[i] = null;
+                    break;
+                case "Tent" :
+                    speed -=2;
+                    gp.obj[i] = null;
+                    break;
+            }
         }
     }
     public void damageWall(int i){

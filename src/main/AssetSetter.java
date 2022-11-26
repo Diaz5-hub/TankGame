@@ -1,10 +1,8 @@
 package main;
 
 import entity.NPC_Object;
-import object.OBJ_Boots;
-import object.OBJ_Door;
-import object.OBJ_Key;
-import object.OBJ_Tent;
+import object.Boots;
+import object.Tent;
 import opponentmain.OPP_Tank;
 
 public class AssetSetter {
@@ -16,13 +14,17 @@ public class AssetSetter {
     }
     public void setObject(){
         //BOOTS USED AS POWER UP SPEED
-//        gp.obj[0] = new OBJ_Boots(gp);
-//        gp.obj[0].worldX = gp.tileSize*21;
-//        gp.obj[0].worldY = gp.tileSize*22;
-//
-//        gp.obj[1] = new OBJ_Boots(gp);
-//        gp.obj[1].worldX = gp.tileSize*23;
-//        gp.obj[1].worldY = gp.tileSize*24;
+        gp.obj[0] = new Boots(gp);
+        gp.obj[0].worldX = gp.tileSize*23;
+        gp.obj[0].worldY = gp.tileSize*25;
+
+        gp.obj[1] = new Boots(gp);
+        gp.obj[1].worldX = gp.tileSize*25;
+        gp.obj[1].worldY = gp.tileSize*28;
+
+        gp.obj[2] = new Tent(gp);
+        gp.obj[2].worldX = gp.tileSize*29;
+        gp.obj[2].worldY = gp.tileSize*34;
 
     }
     public void setNPC(){

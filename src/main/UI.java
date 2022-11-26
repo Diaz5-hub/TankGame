@@ -1,7 +1,7 @@
 package main;
 
 import entity.Entity;
-import object.OBJ_Heart;
+import object.Heart;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -24,7 +24,7 @@ public class UI {
         arial_40 = new Font("Arial",Font.PLAIN,40); //setting font before game start so it does not create a new instance FPS per second
         arial_80BOLD = new Font("Arial",Font.BOLD,80);
         //CREATE HUD OBJECT
-        Entity heart = new OBJ_Heart(gp);
+        Entity heart = new Heart(gp);
         heart_full = heart.image;
         heart_half = heart.image2;
         heart_blank = heart.image3;

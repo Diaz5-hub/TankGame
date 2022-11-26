@@ -39,6 +39,9 @@ public class KeyHandler implements KeyListener {
         else if(gp.gameState == gp.gameOverState){
             gameOverState(code);
         }
+        else if(gp.gameState == gp.mapState){
+            //mapstate
+        }
     }
     public void playState(int code){
         if(code == KeyEvent.VK_W){
@@ -62,6 +65,7 @@ public class KeyHandler implements KeyListener {
         if(code == KeyEvent.VK_O){
             shotKeyPressed = true;
         }
+        
         //DEBUG
         if(code == KeyEvent.VK_T){
             if(checkDrawTime == false){

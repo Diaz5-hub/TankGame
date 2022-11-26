@@ -11,12 +11,11 @@ public class Sound {
 
     public Sound(){
         soundURL[0] = getClass().getResource("/sound/BlueBoyAdventure.wav");    //make own sound from ricesnow tutorial
-        soundURL[1] = getClass().getResource("/sound/coin.wav");
-        soundURL[2] = getClass().getResource("/sound/powerup.wav");
-        soundURL[3] = getClass().getResource("/sound/speak.wav");
-        soundURL[4] = getClass().getResource("/sound/hitopp.wav");
-        soundURL[5] = getClass().getResource("/sound/receivedamage.wav");
-        soundURL[6] = getClass().getResource("/sound/burning.wav");
+        soundURL[1] = getClass().getResource("/sound/powerup.wav");
+        soundURL[2] = getClass().getResource("/sound/speak.wav");
+        soundURL[3] = getClass().getResource("/sound/hitopp.wav");
+        soundURL[4] = getClass().getResource("/sound/receivedamage.wav");
+        soundURL[5] = getClass().getResource("/sound/burning.wav");
     }
     public void setFile(int i){
         try {
