@@ -133,6 +133,9 @@ public class Player extends Entity{
         if(shotAvailableCounter < 30){
             shotAvailableCounter++;
         }
+        if(life <= 0){
+            gp.gameState = gp.gameOverState;
+        }
     }
     public void attacking(){
         //SAVE THE CURRENT worldX, worldY and solid area
@@ -201,6 +204,12 @@ public class Player extends Entity{
     public void pickUpObject(int i) {
         if (i != 999) {
             //use this for powerups and sound effects when picking them up. look at screenshot in phone
+        }
+    }
+    public void damageWall(int i){
+        if(i != 999 && gp.breakablee[i].destructible == true){
+            //if wall is destructable
+            gp.breakablee[i] = null;
         }
     }
     public void draw(Graphics2D g2){

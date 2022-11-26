@@ -2,6 +2,7 @@ package main;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.security.Key;
 
 public class KeyHandler implements KeyListener {
 
@@ -34,6 +35,9 @@ public class KeyHandler implements KeyListener {
         //PAUSE STATE
         else if(gp.gameState == gp.pauseState){
             pauseState(code);
+        }
+        else if(gp.gameState == gp.gameOverState){
+            gameOverState(code);
         }
     }
     public void playState(int code){
@@ -94,6 +98,25 @@ public class KeyHandler implements KeyListener {
     public void pauseState(int code){
         if(code == KeyEvent.VK_P){
             gp.gameState = gp.playState;
+        }
+    }
+    public void gameOverState(int code){
+        if(code == KeyEvent.VK_W){
+            gp.ui.commandNum--;
+            if(gp.ui.commandNum < 0 || gp.ui.commandNum > 1){
+                gp.ui.commandNum =1;
+            }
+        }
+        if(code == KeyEvent.VK_S){
+            gp.ui.commandNum++;
+            if(gp.ui.commandNum < 0 || gp.ui.commandNum > 1){
+                gp.ui.commandNum =1;
+            }
+        }
+        if(code == KeyEvent.VK_ENTER){
+            if(gp.ui.commandNum == 1){
+                System.exit(1);
+            }
         }
     }
 

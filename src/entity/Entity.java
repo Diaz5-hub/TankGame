@@ -42,8 +42,6 @@ public class Entity {
     public String name;
     int dyingCounter =0;
     int hpBarCounter = 0;
-    public int maxMana;
-    public int mana;
     public Projectile projectile;
     public int useCost;
     public int shotAvailableCounter = 0;
@@ -66,11 +64,15 @@ public class Entity {
         gp.cChecker.checkObject(this,false);
         gp.cChecker.checkEntity(this,gp.npc);
         gp.cChecker.checkEntity(this,gp.opponent);  //CHECK COLLISION BETWEEN ENTITIES(OPPONENT AND BAT)
+        //int checkBreakableWallHit = gp.cChecker.checkEntity(projectile,gp.breakablee);    might be able to use this to check against breakable wall
         boolean contactPlayer = gp.cChecker.checkPlayer(this);
 
         if(this.type == 2 && contactPlayer == true){    //if contacted player from opponent, damage is resulted
             damagePlayer(4);    //get 4 damage
         }
+//        if(checkBreakableWallHit == 0){
+//            System.out.println("hit breakable wall");
+//        }
         if(collisionOn == false){
             switch (direction){
                 case "up": worldY -= speed; break;

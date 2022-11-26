@@ -36,6 +36,7 @@ public class TileManager {
             setup(3,"wall",true);
             setup(4,"earth",false);
             setup(5,"water00",true);
+            setup(6,"breakablewall",true);
     }
     public void setup(int index,String imageName,boolean collision){
         //FUNCTION USED TO GET TILE IMAGES

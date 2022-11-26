@@ -49,6 +49,9 @@ public class UI {
             drawPauseScreen();
             drawPlayerLife();
         }
+        if(gp.gameState == gp.gameOverState){
+            drawGameOverScreen();
+        }
     }
     public void drawPlayerLife(){
         int x = gp.tileSize/2;
@@ -135,5 +138,35 @@ public class UI {
         int length = (int)g2.getFontMetrics().getStringBounds(text,g2).getWidth();
         int x = gp.screenWidth/2 - length/2;    //so we can display at center of the screen
         return x;
+    }
+    public void drawGameOverScreen(){
+        //REFERENCING RYISNOW VIDEO 37 ON YOUTUBE FOR DRAWING GAME OVER SCREEN
+        g2.setColor(new Color(0,0,0,150));
+        g2.fillRect(0,0,gp.screenWidth,gp.screenHeight);
+        int x;
+        int y;
+        String text;
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD,100F));
+
+        text = "GAME OVER";
+        //SHADOW
+        g2.setColor(Color.black);
+        x = getXforCenteredText(text);
+        y = gp.tileSize*4;
+        g2.drawString(text,x,y);
+        //MAIN
+        g2.setColor(Color.white);
+        g2.drawString(text,x-5,y-4);
+
+        //RETRY
+
+        //BACK TO TITLE SCREEN
+        text = "Quit";
+        x = getXforCenteredText(text);
+        y += 155;        //go down 55 tiles
+        g2.drawString(text,x,y);
+        if(commandNum == 1){
+            g2.drawString(">",x-70,y);
+        }
     }
 }

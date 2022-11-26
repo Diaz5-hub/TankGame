@@ -1,5 +1,6 @@
 package main;
 
+import breakable.breakable;
 import entity.Entity;
 import entity.Player;
 import tile.TileManager;
@@ -51,12 +52,14 @@ public class GamePanel extends JPanel implements Runnable{
     public Entity opponent[] = new Entity[20];
     ArrayList<Entity> entityList = new ArrayList<>();   //place all npc and objects into this list, one big entity list
     public ArrayList<Entity> projectileList = new ArrayList<>();
+    public breakable breakablee[] = new breakable[20];
 
     //GAME STATE
     public int gameState;
     public final int titleState = 0;
     public final int playState = 1;
     public final int pauseState = 2;
+    public final int gameOverState = 3;
 
 
 
@@ -144,6 +147,11 @@ public class GamePanel extends JPanel implements Runnable{
                 }
             }
         }
+        for(int i =0;i<breakablee.length;i++){
+            if(breakablee[i] != null){
+                breakablee[i].update();
+            }
+        }
     }
     public void paintComponent(Graphics g){
 
@@ -163,6 +171,12 @@ public class GamePanel extends JPanel implements Runnable{
         else{
             //TILE
             tileM.draw(g2); //draw tiles then player so player is drawn on top. if done opposite, tiles will overpower player
+
+            for(int i =0;i<breakablee.length;i++){
+                if(breakablee[i] != null){
+                    breakablee[i].draw(g2);
+                }
+            }
 
             //ADD ENTITIES TO THE LIST(OBJECTS AND NPC)
             entityList.add(player);
