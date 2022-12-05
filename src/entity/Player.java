@@ -208,6 +208,10 @@ public class Player extends Entity{
             switch (objectName){
                 case "Boots":
                     speed+=2;
+                    if(life < maxLife){
+                        life+=1;
+                        System.out.println("life increased by"+ life);
+                    }
                     gp.playSE(1);
                     gp.obj[i] = null;
                     break;

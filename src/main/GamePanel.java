@@ -61,6 +61,7 @@ public class GamePanel extends JPanel implements Runnable{
     public final int pauseState = 2;
     public final int gameOverState = 3;
     public final int mapState = 4;
+    public final int splitScreen = 5;
 
 
 
@@ -211,7 +212,7 @@ public class GamePanel extends JPanel implements Runnable{
                 }
             });
 
-            //DRAW ENTITIES
+            //DRAW ENTITIES in order for pickup object to work. in order for it to objects to disappear
             for (int i =0;i<entityList.size();i++){
                 entityList.get(i).draw(g2);
             }

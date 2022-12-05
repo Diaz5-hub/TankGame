@@ -52,6 +52,10 @@ public class UI {
         if(gp.gameState == gp.gameOverState){
             drawGameOverScreen();
         }
+
+    }
+    public void drawMiniMap(){
+
     }
     public void drawPlayerLife(){
         int x = gp.tileSize/2;
@@ -157,8 +161,6 @@ public class UI {
         //MAIN
         g2.setColor(Color.white);
         g2.drawString(text,x-5,y-4);
-
-        //RETRY
 
         //BACK TO TITLE SCREEN
         text = "Quit";
