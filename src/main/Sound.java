@@ -10,7 +10,7 @@ public class Sound {
     URL soundURL[] = new URL[30];   //used to store file path of sound files
 
     public Sound(){
-        soundURL[0] = getClass().getResource("/sound/BlueBoyAdventure.wav");    //make own sound from ricesnow tutorial
+        soundURL[0] = getClass().getResource("/sound/music.wav");
         soundURL[1] = getClass().getResource("/sound/powerup.wav");
         soundURL[2] = getClass().getResource("/sound/speak.wav");
         soundURL[3] = getClass().getResource("/sound/hitopp.wav");
