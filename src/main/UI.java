@@ -107,8 +107,6 @@ public class UI {
         text = "Start Game";
         x = getXforCenteredText(text);
         y += gp.tileSize*3.5;
-//        g2.setColor(Color.gray);
-//        g2.drawString(text,x+1,y+2);//fade
         g2.drawString(text,x,y);
         g2.setColor(Color.gray);
         g2.drawString(text,x+1,y+2);//fade
@@ -121,8 +119,6 @@ public class UI {
         text = "QUIT";
         x = getXforCenteredText(text);
         y += gp.tileSize;
-//        g2.setColor(Color.gray);    //fade
-//        g2.drawString(text,x+1,y+2);
         g2.drawString(text,x,y);
         g2.setColor(Color.gray);    //fade
         g2.drawString(text,x+1,y+2);
