@@ -67,7 +67,7 @@ public class Player extends Entity{
     public void update(){
         if(attacking == true){
             attacking();
-        }//MIGHT NEED TO DELTE IF STATEMENT, CHECK LATER
+        }//MIGHT NEED TO DELETE IF STATEMENT, CHECK LATER
         else if(keyH.upPressed == true || keyH.downPressed == true ||
                 keyH.leftPressed == true || keyH.rightPressed == true || keyH.enterPressed == true){
             if(keyH.upPressed == true){
@@ -217,6 +217,10 @@ public class Player extends Entity{
                     break;
                 case "Tent" :
                     speed -=2;
+                    if(life > 0){
+                        life -=1;
+                        System.out.println("Life decreased by"+life);
+                    }
                     gp.obj[i] = null;
                     break;
             }

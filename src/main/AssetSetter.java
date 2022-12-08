@@ -30,6 +30,14 @@ public class AssetSetter {
         gp.obj[3].worldX = gp.tileSize*18;
         gp.obj[3].worldY = gp.tileSize*48;
 
+        gp.obj[4] = new Boots(gp);
+        gp.obj[4].worldX = gp.tileSize*35;
+        gp.obj[4].worldY = gp.tileSize*28;
+
+        gp.obj[5] = new Boots(gp);
+        gp.obj[5].worldX = gp.tileSize*35;
+        gp.obj[5].worldY = gp.tileSize*20;
+
     }
     public void setNPC(){
         gp.npc[0] = new NPC_Object(gp);
