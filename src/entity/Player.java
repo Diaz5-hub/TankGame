@@ -212,6 +212,7 @@ public class Player extends Entity{
                         life+=1;
                         System.out.println("life increased by: "+ life);
                     }
+                    System.out.println("Speed is "+ speed);
                     gp.playSE(1);
                     gp.obj[i] = null;
                     break;
@@ -221,6 +222,7 @@ public class Player extends Entity{
                         life -=1;
                         System.out.println("Life decreased by: "+life);
                     }
+                    System.out.println("Speed is "+ speed);
                     gp.obj[i] = null;
                     break;
             }
