@@ -7,7 +7,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 
 public class UI {
-    //THIS CLASS HANDLES ALL THE HOME SCREEN UI TO DISLAY TEXT MESSAGE AND ITEM ICONS
+    //THIS CLASS HANDLES ALL THE HOME SCREEN UI TO DISPLAY TEXT MESSAGE AND ITEM ICONS
     GamePanel gp;
     Graphics2D g2;
     Font arial_40, arial_80BOLD;

@@ -31,7 +31,6 @@ public class OPP_Tank extends Entity {
         down1 = setup("/opponent/Hull_03down",gp.tileSize,gp.tileSize);
         left1 = setup("/opponent/Hull_03left",gp.tileSize,gp.tileSize);
         right1 = setup("/opponent/Hull_03right",gp.tileSize,gp.tileSize);
-
     }
     public void setAction(){
         //SETTING TANKS BEHAVIOR
