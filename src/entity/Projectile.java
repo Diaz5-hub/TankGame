@@ -32,7 +32,7 @@ public class Projectile extends Entity{
                 alive = false;
             }
         }
-        switch (direction){
+        switch (direction){     //for the direction of the projectile, just like the npc and other objects
             case "up": worldY -= speed;break;
             case "down": worldY += speed;break;
             case "left": worldX -= speed;break;

@@ -210,7 +210,7 @@ public class Player extends Entity{
                     speed+=2;
                     if(life < maxLife){
                         life+=1;
-                        System.out.println("life increased by"+ life);
+                        System.out.println("life increased by: "+ life);
                     }
                     gp.playSE(1);
                     gp.obj[i] = null;
@@ -219,7 +219,7 @@ public class Player extends Entity{
                     speed -=2;
                     if(life > 0){
                         life -=1;
-                        System.out.println("Life decreased by"+life);
+                        System.out.println("Life decreased by: "+life);
                     }
                     gp.obj[i] = null;
                     break;
@@ -262,11 +262,5 @@ public class Player extends Entity{
 
         //RESET ALPHA TO MAKE SURE NEXT UI TEXT IS NOT HALF TRANSPARENT
         g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,1f));
-
-
-        //DEBUG
-//        g2.setFont(new Font("Arial",Font.PLAIN,26));
-//        g2.setColor(Color.white);
-//        g2.drawString("invincible"+invincibleCounter,10,400);
     }
 }
