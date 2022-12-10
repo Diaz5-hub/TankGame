@@ -3,6 +3,7 @@ package main;
 import breakable.breakable;
 import entity.Entity;
 import entity.Player;
+import tile.Map;
 import tile.TileManager;
 
 import javax.swing.*;
@@ -26,6 +27,8 @@ public class GamePanel extends JPanel implements Runnable{
     //WORLD SETTINGS
     public final int maxWorldCol = 50;
     public final int maxWorldRow = 50;
+    public final int maxMap = 10;
+    public int currentMap = 0;
 
 
     //FPS
@@ -38,6 +41,7 @@ public class GamePanel extends JPanel implements Runnable{
     //SOUND
     Sound music = new Sound();
     Sound se = new Sound();
+    Map map = new Map(this);
 
     public CollisionChecker cChecker = new CollisionChecker(this);
     public AssetSetter aSetter = new AssetSetter(this);
@@ -218,6 +222,11 @@ public class GamePanel extends JPanel implements Runnable{
             }
             //EMPTY ENTITY LIST UNLESS IT WILL CONTINOUSLY LOOP
             entityList.clear();
+
+            //map.createWorldMap();
+            //map.drawFullMapScreen(g2);
+
+            map.drawMiniMap(g2);
 
             ui.draw(g2);
         }

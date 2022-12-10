@@ -159,9 +159,6 @@ public class Player extends Entity{
         worldY = currentWorldY;
         solidArea.width = solidAreaWidth;
         solidArea.height = solidAreaHeight;
-
-
-
     }
 
     public void interactNPC(int i){

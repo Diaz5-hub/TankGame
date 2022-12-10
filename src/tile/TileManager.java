@@ -18,15 +18,16 @@ public class TileManager {
         // THIS CLASS IS USED TO MANAGE TILES
     GamePanel gp;
     public Tile[] tile;
-    public int mapTileNum[][];
+    public int mapTileNum[][][];
 
     public TileManager(GamePanel gp){
         this.gp = gp;
 
-        tile = new Tile[10];
-        mapTileNum = new int[gp.maxWorldCol][gp.maxWorldRow];
+        tile = new Tile[50];
+        mapTileNum = new int[gp.maxMap][gp.maxWorldCol][gp.maxWorldRow];
         getTileImage();
-        loadMap("/maps/world01.txt");   //pass map file here
+        loadMap("/maps/world01.txt",0);   //pass map file here
+        //if second map use function and map is 1 for this one
     }
     public void getTileImage(){
         //calling function to get tile images
@@ -51,7 +52,7 @@ public class TileManager {
             e.printStackTrace();
         }
     }
-    public void loadMap(String filePath){
+    public void loadMap(String filePath,int map){
         try {
             InputStream is = getClass().getResourceAsStream(filePath);
             BufferedReader br = new BufferedReader(new InputStreamReader(is));
@@ -64,7 +65,7 @@ public class TileManager {
                 while(col < gp.maxWorldCol){
                     String numbers[] = line.split(" "); //split to get numbers 1 by 1
                     int num = Integer.parseInt(numbers[col]);   //getting each number in the map after splitting
-                    mapTileNum[col][row] = num;
+                    mapTileNum[map][col][row] = num;
                     col++;  //continue until every numbers[] is stored in mapTileNum[]
                 }
                 if(col == gp.maxWorldCol){
@@ -84,7 +85,7 @@ public class TileManager {
 
 
         while(worldCol < gp.maxWorldCol && worldRow < gp.maxWorldRow){
-            int tileNum = mapTileNum[worldCol][worldRow]; //extract a tile number from mapTileNum
+            int tileNum = mapTileNum[gp.currentMap][worldCol][worldRow]; //extract a tile number from mapTileNum
             //if get 0 from mapTileNum then draw that image
             //data stored inside of mapTileNum[]
             int worldX = worldCol * gp.tileSize;    //worldX and Y is the position on the map
