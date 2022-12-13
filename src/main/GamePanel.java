@@ -56,7 +56,7 @@ public class GamePanel extends JPanel implements Runnable{
     public Entity opponent[] = new Entity[20];
     ArrayList<Entity> entityList = new ArrayList<>();   //place all npc and objects into this list, one big entity list
     public ArrayList<Entity> projectileList = new ArrayList<>();
-    public breakable breakablee[] = new breakable[20];
+    public breakable breakablee[] = new breakable[50];
 
     //GAME STATE
     public int gameState;
@@ -83,6 +83,7 @@ public class GamePanel extends JPanel implements Runnable{
         aSetter.setNPC();
         aSetter.setOpponent();
         //playMusic(0);
+        aSetter.setBreakableWall();
         gameState = titleState;
     }
     public void startGameThread(){

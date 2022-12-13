@@ -102,6 +102,10 @@ public class Player extends Entity{
             int opponentIndex = gp.cChecker.checkEntity(this,gp.opponent); //send opponent array to detect opponent collision
             contactWithOpponent(opponentIndex);
 
+            //check wall collision
+            int wallChecking = gp.cChecker.checkEntity(this,gp.breakablee);
+
+
 
             // IF COLLISION IS FALSE, PLAYER CAN MOVE
             if(collisionOn == false && keyH.enterPressed == false){
@@ -155,10 +159,14 @@ public class Player extends Entity{
         //CHECK OPPONENT COLLISION WITH THE UPDATE WORLX WORLDY AND SOLID AREA
         int opponentIndex = gp.cChecker.checkEntity(this,gp.opponent);
         damageOpponent(opponentIndex,4);    //can replace with attack if declared variable
+        //check wall collision
+        int breakIndex = gp.cChecker.checkEntity(this,gp.breakablee);
+        damageWall(breakIndex);
         worldX = currentWorldX;
         worldY = currentWorldY;
         solidArea.width = solidAreaWidth;
         solidArea.height = solidAreaHeight;
+
     }
 
     public void interactNPC(int i){

@@ -1,6 +1,7 @@
 package main;
 
 import entity.Entity;
+import entity.Projectile;
 
 public class CollisionChecker {
     // THIS CLASS IS USED TO CHECK COLLISIONS
@@ -185,5 +186,13 @@ public class CollisionChecker {
         gp.player.solidArea.x = gp.player.solidAreaDefaultX;
         gp.player.solidArea.y = gp.player.solidAreaDefaultY;
         return contactPlayer;
+    }
+    public boolean checkWall(Projectile projectile,Entity target){
+        boolean checking = false;
+
+
+
+
+        return checking;
     }
 }

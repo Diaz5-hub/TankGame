@@ -64,8 +64,9 @@ public class Entity {
         gp.cChecker.checkObject(this,false);
         gp.cChecker.checkEntity(this,gp.npc);
         gp.cChecker.checkEntity(this,gp.opponent);  //CHECK COLLISION BETWEEN ENTITIES(OPPONENT AND BAT)
-        //int checkBreakableWallHit = gp.cChecker.checkEntity(projectile,gp.breakablee);    might be able to use this to check against breakable wall
+        //int checkBreakableWallHit = gp.cChecker.checkEntity(projectile,gp.breakablee);    //might be able to use this to check against breakable wall
         boolean contactPlayer = gp.cChecker.checkPlayer(this);
+
 
         if(this.type == 2 && contactPlayer == true){    //if contacted player from opponent, damage is resulted
             damagePlayer(4);    //get 4 damage

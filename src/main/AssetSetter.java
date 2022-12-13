@@ -1,5 +1,6 @@
 package main;
 
+import breakable.breakableWall;
 import entity.NPC_Object;
 import object.Boots;
 import object.Tent;
@@ -48,5 +49,9 @@ public class AssetSetter {
         gp.opponent[0] = new OPP_Tank(gp);
         gp.opponent[0].worldX = gp.tileSize*23;
         gp.opponent[0].worldY = gp.tileSize*36;
+    }
+    public void setBreakableWall(){
+        int i = 0;
+        gp.breakablee[i] = new breakableWall(gp);
     }
 }
