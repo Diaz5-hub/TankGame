@@ -28,9 +28,10 @@ The jar folder is to be used to store the built jar of your term-project.
 ## IDE used: IntelliJ
 
 ## Steps to Import project into IDE:
+The steps are to open IntelliJ and select project from existing sources from the “File” dropdown menu in the “New” section. After that click on the repository name and continue with selecting the SDK of 17 and stick to the default settings and keep on clicking continue and then finally the project will open.	
 
 ## Steps to Build your Project:
-The steps are to open IntelliJ and select project from existing sources from the “File” dropdown menu in the “New” section. After that click on the repository name and continue with selecting the SDK of 17 and stick to the default settings and keep on clicking continue and then finally the project will open.		
+To build the project make sure the "main" class is recognizes as a Java class and once it is click on "Build" as one of the options on the top screen in IntelliJ, then select "Build Project".		
  
 ## Steps to run your Project: 
 After the project is imported into IntelliJ make sure the “main” class is recognized as a Java file. If not click on file properties and make sure the main class is being read correctly with the correct SDK.	3
