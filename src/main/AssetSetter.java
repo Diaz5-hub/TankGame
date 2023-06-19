@@ -16,7 +16,7 @@ public class AssetSetter {
     public void setObject(){
         //BOOTS USED AS POWER UP SPEED
         gp.obj[0] = new Boots(gp);
-        gp.obj[0].worldX = gp.tileSize*23;
+        gp.obj[0].worldX = gp.tileSize*23;      //setting boots on the map
         gp.obj[0].worldY = gp.tileSize*25;
 
         gp.obj[1] = new Boots(gp);
