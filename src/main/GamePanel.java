@@ -65,7 +65,7 @@ public class GamePanel extends JPanel implements Runnable{
     public final int pauseState = 2;
     public final int gameOverState = 3;
     public final int mapState = 4;
-    public final int splitScreen = 5;
+    public final int MultiplayerState = 5;
 
 
 
@@ -130,6 +130,7 @@ public class GamePanel extends JPanel implements Runnable{
                 }
             }
         }
+        //for multiplayer state, add both tanks
         if(gameState == pauseState){
             //add stuff later
         }

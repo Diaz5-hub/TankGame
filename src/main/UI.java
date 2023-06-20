@@ -115,15 +115,26 @@ public class UI {
             g2.drawString(">",x-gp.tileSize,y);
         }
 
+        //Multiplayer Option
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD,48F));
+        text = "MULTIPLAYER";
+        x = getXforCenteredText(text)+30;       //for how far right the text is displayed
+        y+= gp.tileSize+3;
+        g2.setColor(Color.gray);
+        g2.drawString(text,x+1,y+2);    //fade
+        if(commandNum == 1){
+            g2.drawString(">",x-gp.tileSize,y);
+        }
+
         //QUIT GAME
         g2.setFont(g2.getFont().deriveFont(Font.BOLD,48F));
         text = "QUIT";
         x = getXforCenteredText(text);
-        y += gp.tileSize;
+        y += gp.tileSize+5;     //use this to set the text on the y-coordinate
         g2.drawString(text,x,y);
         g2.setColor(Color.gray);    //fade
         g2.drawString(text,x+1,y+2);
-        if(commandNum == 1){
+        if(commandNum == 2){
             g2.drawString(">",x-gp.tileSize,y);
         }
     }
