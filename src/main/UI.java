@@ -46,6 +46,10 @@ public class UI {
             //DO PLAYSTATE STUFF
             drawPlayerLife();
         }
+            //this is where to add mulitplayer state and call drawplayerlife to test
+//        if(gp.gameState == gp.MultiplayerState){
+//            drawPlayerLife();
+//        }
         if(gp.gameState == gp.pauseState){
             drawPauseScreen();
             drawPlayerLife();
@@ -53,9 +57,6 @@ public class UI {
         if(gp.gameState == gp.gameOverState){
             drawGameOverScreen();
         }
-
-    }
-    public void drawMiniMap(){
 
     }
     public void drawPlayerLife(){
@@ -85,6 +86,7 @@ public class UI {
         }
 
     }
+    //draw mulitplayer life
     public void drawTitleScreen(){
         g2.setFont(g2.getFont().deriveFont(Font.BOLD,96F));
         String text = "Tank Game";

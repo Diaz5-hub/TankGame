@@ -49,6 +49,22 @@ public class AssetSetter {
         gp.opponent[0] = new OPP_Tank(gp);
         gp.opponent[0].worldX = gp.tileSize*23;
         gp.opponent[0].worldY = gp.tileSize*36;
+
+        gp.opponent[1] = new OPP_Tank(gp);
+        gp.opponent[1].worldX= gp.tileSize*29;
+        gp.opponent[1].worldY = gp.tileSize*35;
+
+        gp.opponent[2] = new OPP_Tank(gp);
+        gp.opponent[2].worldX= gp.tileSize*35;
+        gp.opponent[2].worldY = gp.tileSize*45;
+
+        gp.opponent[3] = new OPP_Tank(gp);
+        gp.opponent[3].worldX= gp.tileSize*45;
+        gp.opponent[3].worldY = gp.tileSize*49;
+
+        gp.opponent[4] = new OPP_Tank(gp);
+        gp.opponent[4].worldX= gp.tileSize*15;
+        gp.opponent[4].worldY = gp.tileSize*25;
     }
     public void setBreakableWall(){
         int i = 0;

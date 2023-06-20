@@ -130,7 +130,12 @@ public class GamePanel extends JPanel implements Runnable{
                 }
             }
         }
+//        if(gameState == MultiplayerState){
+//            player.update();
+//            mp.update();
+//        }
         //for multiplayer state, add both tanks
+
         if(gameState == pauseState){
             //add stuff later
         }
