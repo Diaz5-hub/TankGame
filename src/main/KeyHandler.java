@@ -41,6 +41,7 @@ public class KeyHandler implements KeyListener {
         }
         else if(gp.gameState == gp.mapState){
             //mapstate
+            mapState(code);
         }
     }
     public void playState(int code){
@@ -64,6 +65,9 @@ public class KeyHandler implements KeyListener {
         }
         if(code == KeyEvent.VK_O){
             shotKeyPressed = true;
+        }
+        if(code == KeyEvent.VK_M){
+            gp.gameState = gp.mapState; //added
         }
         if(code == KeyEvent.VK_X){
             if(gp.map.miniMapOn == false){
@@ -109,6 +113,11 @@ public class KeyHandler implements KeyListener {
     }
     public void pauseState(int code){
         if(code == KeyEvent.VK_P){
+            gp.gameState = gp.playState;
+        }
+    }
+    public void mapState(int code){
+        if(code == KeyEvent.VK_M){
             gp.gameState = gp.playState;
         }
     }

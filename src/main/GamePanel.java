@@ -175,6 +175,9 @@ public class GamePanel extends JPanel implements Runnable{
         if(gameState == titleState){
             ui.draw(g2);
         }
+        else if(gameState == mapState){
+            map.drawFullMapScreen(g2);  //added
+        }
         else{
             //TILE
             tileM.draw(g2); //draw tiles then player so player is drawn on top. if done opposite, tiles will overpower player

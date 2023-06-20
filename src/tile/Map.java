@@ -6,7 +6,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 
 public class Map extends TileManager{
-    //referencing RySnow video 47 to create minimap
+    //referencing RySnow video 47 to create minimap !!
     GamePanel gp;
     BufferedImage worldMap[];
     public boolean miniMapOn = false;
@@ -14,6 +14,7 @@ public class Map extends TileManager{
     public Map(GamePanel gp) {
         super(gp);
         this.gp = gp;
+        createWorldMap();
     }
     public void createWorldMap(){
         worldMap = new BufferedImage[gp.maxMap];
@@ -49,11 +50,17 @@ public class Map extends TileManager{
         int y = gp.screenHeight/2-height/2;
         g2.drawImage(worldMap[gp.currentMap],x,y,width,height,null);
 
+        //DRAW PLAYER ON THE MAP
         double scale = (double) (gp.tileSize * gp.maxWorldCol)/width;
         int playerX = (int)(x+gp.player.worldX/scale);
         int playerY = (int)(y+gp.player.worldY/scale);
         int playerSize = (int)(gp.tileSize/scale);
         g2.drawImage(gp.player.down1,playerX,playerY,playerSize,playerSize,null);
+
+        //HINT FOR MAP TO CLOSE
+        g2.setFont(gp.ui.arial_40.deriveFont(48f));
+        g2.setColor(Color.white);
+        g2.drawString("Press M to close",750,750);
 
 
     }
@@ -68,12 +75,12 @@ public class Map extends TileManager{
             g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,0.8f));
             g2.drawImage(worldMap[gp.currentMap],x,y,width,height,null );
 
-            //DRAW PLAYER
+            //DRAW PLAYER ON THE MINI MAP
             double scale = (double) (gp.tileSize * gp.maxWorldCol)/width;
             int playerX = (int)(x+gp.player.worldX/scale);
             int playerY = (int)(y+gp.player.worldY/scale);
-            int playerSize = (int)(gp.tileSize/scale);
-            g2.drawImage(gp.player.down1,playerX,playerY,playerSize,playerSize,null);
+            int playerSize = (int)(gp.tileSize/3);  //if want to increase player size,increase 3
+            g2.drawImage(gp.player.down1,playerX-6,playerY-6,playerSize,playerSize,null);
             g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,1f));
 
         }
