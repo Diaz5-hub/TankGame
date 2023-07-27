@@ -22,7 +22,7 @@ Assumption Made: I thought this project was not going to be so hard. The only re
 
 Tank Game is developed in Java, showcasing the utilization of various Java functionalities, including polymorphism and inheritance. The project demonstrates my proficiency in Java programming and the ability to implement complex game mechanics and visual elements.
 
-Other JAVA key concepts and functionalities used: Classes and Objects | Interfaces | Packages | Exception Handling | Generics | Multithreading | FPS Handeling
+Other JAVA key concepts and functionalities used: Classes and Objects, Interfaces, Packages, Exception Handling, Generics, Multithreading and FPS Handeling
 
 ## Controls to play your Game:  
     A: Move left
