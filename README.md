@@ -18,6 +18,10 @@ To build the project make sure the "main" class is recognizes as a Java class an
 After the project is imported into IntelliJ make sure the “main” class is recognized as a Java file. If not click on file properties and make sure the main class is being read correctly with the correct SDK.	3
 Assumption Made: I thought this project was not going to be so hard. The only requirements I thought were going to be difficult were to have breakable walls and a split screen.
 
+Tank Game is developed in Java, showcasing the utilization of various Java functionalities, including polymorphism and inheritance. The project demonstrates my proficiency in Java programming and the ability to implement complex game mechanics and visual elements.
+
+Other JAVA key concepts and functionalities used: Classes and Objects | Interfaces | Packages | Exception Handling | Generics | Multithreading | FPS Handeling
+
 ## Controls to play your Game:  
     A: Move left
     D: Move Right
