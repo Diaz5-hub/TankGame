@@ -1,3 +1,5 @@
+![Screen Shot 2023-07-26 at 9 49 16 PM](https://github.com/Diaz5-hub/TankGame/assets/81527723/288d4044-5f20-462a-b2bf-867b824e4750)
+![Screen Shot 2023-07-26 at 9 58 02 PM](https://github.com/Diaz5-hub/TankGame/assets/81527723/12f69321-4b07-4743-ab4c-2b5844d897e0)
 
 
 # Required Information when Submitting Tank Game
